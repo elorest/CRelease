@@ -1,4 +1,4 @@
-# cRelease
+# CRelease
 
 Application to simpify versioning and releasing crystal projects.
 
