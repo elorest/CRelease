@@ -6,7 +6,7 @@ if new_version = ARGV[0]?
   name = shard["name"].as_s
   version = shard["version"].as_s
 
-  files = {"shard.yml" => "version: #{version}", "src/#{name}/version.cr" => %Q(  VERSION = "#{version})}
+  files = {"shard.yml" => "version: #{version}", "src/#{name}/version.cr" => %Q("#{version}")}
   files.each do |filename, version_str|
     puts "Updating version numbers in #{filename}.".colorize(:light_magenta)
     file_string = File.read(filename).gsub(version_str, version_str.gsub(version, new_version))
