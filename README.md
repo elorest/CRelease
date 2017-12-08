@@ -5,7 +5,7 @@ Application to simpify versioning and releasing crystal projects.
 ## Installation
 
 ### With Homebrew 
-1. `brew install elorest/homebrew-crelease/crelease`
+1. `brew install elorest/homebrew-crystal/crelease`
 
 ### From Source
 1. `git clone https://github.com/elorest/crelease.git`
