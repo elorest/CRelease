@@ -8,7 +8,7 @@ if new_version = ARGV[0]?
 
   # update additional files if project is amber.
   amber = Amber.instance
-  amber.prepare_for_release if amber 
+  amber.prepare_for_release if amber
 
   files = {"shard.yml" => "version: #{version}", "src/#{name}/version.cr" => %Q("#{version}")}
   files.each do |filename, version_str|
@@ -27,7 +27,7 @@ if new_version = ARGV[0]?
   `git push origin v#{new_version}`
   if amber
     amber.return_to_master
-    `git commit -am "settings amber lock back to master for master branch"`
+    `git commit -am "Settings amber lock back to master for master branch"`
     `git push`
     `git branch -D stable`
     `git push origin :stable`
@@ -49,7 +49,7 @@ class Amber
     #version: <%= Amber::VERSION %>
   SHARD
 
-  getter release_partial= <<-SHARD
+  getter release_partial = <<-SHARD
     github: amberframework/amber
     version: <%= Amber::VERSION %>
     #branch: master
@@ -67,11 +67,11 @@ class Amber
   end
 
   def prepare_for_release
-    File.write(shard_file, release_shard_str) 
+    File.write(shard_file, release_shard_str)
   end
 
-  def return_to_master 
-    File.write(shard_file, master_shard_str) 
+  def return_to_master
+    File.write(shard_file, master_shard_str)
   end
 
   def amber_project?
