@@ -29,7 +29,7 @@ if new_version = ARGV[0]?
     amber.return_to_master
     `git commit -am "Settings amber lock back to master for master branch"`
     `git push`
-    `git branch -D stable`
+    `git branch -d stable`
     `git push origin :stable`
     `git reset --hard v#{new_version}`
     `git checkout -b stable`
@@ -44,15 +44,15 @@ end
 
 class Amber
   getter master_partial = <<-SHARD
-    github: amberframework/amber
-    branch: master
-    #version: <%= Amber::VERSION %>
+      github: amberframework/amber
+      branch: master
+      #version: <%= Amber::VERSION %>
   SHARD
 
   getter release_partial = <<-SHARD
-    github: amberframework/amber
-    version: <%= Amber::VERSION %>
-    #branch: master
+      github: amberframework/amber
+      version: <%= Amber::VERSION %>
+      #branch: master
   SHARD
 
   getter shard_file = "./src/amber/cli/templates/app/shard.yml.ecr"
