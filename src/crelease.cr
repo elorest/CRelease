@@ -27,7 +27,7 @@ if new_version = ARGV[0]?
   `git push origin v#{new_version}`
   if amber
     amber.return_to_master
-    `git commit -am "Settings amber lock back to master for master branch"`
+    `git commit -am "Setting amber version lock back to master after release of v#{new_version}"`
     `git push`
     `git branch -d stable`
     `git push origin :stable`
