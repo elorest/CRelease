@@ -18,5 +18,5 @@ link:
 
 force_link: 
 	@echo "Symlinking `pwd`/bin/crelease to /usr/local/bin/crelease"
-	@ln -sf `pwd`/bin/crelease /usr/local/bin/crelease
+	@sudo ln -sf `pwd`/bin/crelease /usr/local/bin/crelease
 
