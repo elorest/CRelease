@@ -1,3 +1,3 @@
 module Crelease
-  VERSION = "0.3.3"
+  VERSION = "-v"
 end
