@@ -29,7 +29,7 @@ if new_version = ARGV[0]?
     amber.return_to_master
     `git commit -am "Setting amber version lock back to master after release of v#{new_version}"`
     `git push`
-    `git branch -d stable`
+    `git branch -D stable`
     `git push origin :stable`
     `git reset --hard v#{new_version}`
     `git checkout -b stable`
