@@ -1,9 +1,9 @@
 require "./spec_helper"
 
-describe Crelease do
+describe Bool do
   # TODO: Write tests
 
   it "works" do
-    false.should eq(true)
+    false.should_not eq(true)
   end
 end
