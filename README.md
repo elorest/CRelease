@@ -14,10 +14,19 @@ Application to simpify versioning and releasing crystal projects.
 
 
 
-## Usage
+## General Usage
 
 `crelease 0.0.1` will update shards.yml and src/yourproject/version.cr to 0.1.1 and then create tags and push to git.
 `crelease 0.0.1 "commit message"` will do the same as above but with a custom commit message. 
+
+## Amber Specific Usage
+
+1. Create new branch with version name. i.e. `is/0.2.9`.
+2. Run `crelease 0.2.9`.
+3. Create PR for new branch.
+4. Merge it in without squashing.
+
+
 
 ## Contributing
 
@@ -30,3 +39,4 @@ Application to simpify versioning and releasing crystal projects.
 ## Contributors
 
 - [elorest](https://github.com/elorest) Isaac Sloan - creator, maintainer
+- [lady-elorest](https://github.com/lady-elorest) Shuana Sloan - documention
