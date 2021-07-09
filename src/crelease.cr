@@ -2,7 +2,7 @@ require "yaml"
 require "colorize"
 
 if new_version = ARGV[0]?
-  shard = YAML.parse(File.read("./shard.yml"))
+    shard = YAML.parse(File.read("./shard.yml"))
   name = shard["name"].as_s
   version = shard["version"].as_s
 
@@ -10,15 +10,25 @@ if new_version = ARGV[0]?
   amber = Amber.instance
   amber.prepare_for_release if amber
 
-  files = {"shard.yml" => "version: #{version}", "src/#{name}/version.cr" => %Q("#{version}")}
+  files = {
+    "shard.yml" => "version: #{version}", 
+    "src/#{name}/version.cr" => %Q("#{version}"),
+    "src/#{name}.cr" => %Q("#{version}"),
+  }
+
   files.each do |filename, version_str|
-    puts "Updating version numbers in #{filename}.".colorize(:light_magenta)
-    file_string = File.read(filename).gsub(version_str, version_str.gsub(version, new_version))
-    File.write(filename, file_string)
+    begin
+      puts "Updating version numbers in #{filename}.".colorize(:light_magenta)
+      file_string = File.read(filename).gsub(version_str, version_str.gsub(version, new_version))
+      File.write(filename, file_string)
+      puts "#{filename} successfully updated."
+    rescue
+      puts "#{filename} doesn't exist."
+    end
   end
 
   message = "Bumped version number to v#{new_version}." unless message = ARGV[1]?
-  puts "git commit -am \"#{message}\"".colorize(:yellow)
+    puts "git commit -am \"#{message}\"".colorize(:yellow)
   `git commit -am "#{message}"`
   `git push`
   puts "git tag -a v#{new_version} -m \"#{name} v#{new_version}\"".colorize(:yellow)

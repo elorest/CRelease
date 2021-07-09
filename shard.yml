@@ -1,5 +1,5 @@
 name: crelease
-version: 0.35.1
+version: 1.0.0
 
 authors:
   - Isaac Sloan <isaac@isaacsloan.com>
@@ -8,6 +8,6 @@ targets:
   crelease:
     main: src/crelease.cr
 
-crystal: 0.35.1
+crystal: "> 0.35.1, < 1.1.0"
 
 license: MIT
