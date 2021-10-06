@@ -13,6 +13,10 @@ run:
 clean:
 	rm -rf  $(OUT_DIR) .crystal .shards libs lib
 
+install: build
+	mkdir -p $(PREFIX)/bin
+	cp ./bin/crelease $(PREFIX)/bin
+
 link: 
 	@ln -s `pwd`/bin/crelease /usr/local/bin/crelease
 
