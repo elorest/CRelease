@@ -8,6 +8,6 @@ targets:
   crelease:
     main: src/crelease.cr
 
-crystal: "> 0.35.1, < 1.1.0"
+crystal: "> 0.35.1, < 1.2"
 
 license: MIT
